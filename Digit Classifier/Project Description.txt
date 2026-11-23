@@ -27,11 +27,10 @@ NETWORK DESIGN
 
 WHAT I IMPLEMENTED
 - Loading the image, label, and weight files into matrices
-- Matrix multiplication, transpose, and column handling (Matrix.java)
 - Forward propagation through both layers
 - Cross-entropy loss with a regularization term
 - Backpropagation and weight updates for both weight matrices
-- Prediction (the output unit with the highest value) and accuracy reporting
+- Prediction and accuracy reporting
 - Console output showing the loss each epoch, how it changes, and the
   predictions for the first 100 records
 
