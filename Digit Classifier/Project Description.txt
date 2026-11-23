@@ -1,0 +1,51 @@
+HANDWRITTEN DIGIT CLASSIFIER - NEURAL NETWORK FROM SCRATCH IN JAVA
+Author: Anthony Pearson
+Language: Java (standard library only, no machine-learning or math libraries)
+Type: Individual course project, University of Arkansas - Fort Smith
+
+OVERVIEW
+A neural network that recognizes handwritten digits (0-9) from 28x28 pixel
+images. Every part of the network is implemented by hand in Java: the forward
+pass, backpropagation, regularization, and gradient descent. The matrix
+operations are my own Matrix class rather than a library.
+This project is a repurposed problem set from my Artificial Intelligence class.
+The code is custom and modified heavily from what was submitted to the university.
+
+DATA
+- 10,000 handwritten digit images from the MNIST dataset
+- Each image is 784 pixel values (28 x 28), with values from 0 to 1
+- Labels are one-hot encoded into 10 output classes
+
+NETWORK DESIGN
+- Architecture: 784 inputs -> 30 hidden units -> 10 outputs, with a bias at
+  each layer
+- Activation: sigmoid on the hidden and output layers
+- Loss: cross-entropy with L2 regularization (lambda = 2.0)
+- Training: batch gradient descent, learning rate 0.5, 500 epochs
+- Backpropagation: output error propagated through the second weight matrix
+  and scaled by the sigmoid derivative to get the gradients for both layers
+
+WHAT I IMPLEMENTED
+- Loading the image, label, and weight files into matrices
+- Matrix multiplication, transpose, and column handling (Matrix.java)
+- Forward propagation through both layers
+- Cross-entropy loss with a regularization term
+- Backpropagation and weight updates for both weight matrices
+- Prediction (the output unit with the highest value) and accuracy reporting
+- Console output showing the loss each epoch, how it changes, and the
+  predictions for the first 100 records
+
+RESULT
+- 89.54% accuracy after 500 epochs of training
+- The loss decreases steadily during training
+- This figure is measured on the same dataset the network was trained on
+  (the program prints the first 100 predictions), so it shows that the
+  network learned the data but is not a measure of accuracy on new images.
+
+WHAT I LEARNED
+- How backpropagation computes gradients layer by layer, and how matrix
+  dimensions have to line up at each step
+- How regularization and the learning rate affect training
+- Why bias terms need separate handling in the weights and in regularization
+- How to structure numerical code so it is readable and debuggable
+
